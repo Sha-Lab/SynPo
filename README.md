@@ -10,6 +10,8 @@ This repository implements the SynPo algorithms presented in:
 - Numpy 1.10.0+
 - Pytorch 0.4.0
 
+Please see [requirements.txt](https://github.com/Sha-Lab/SynPo/blob/master/requirements.txt) for complete details
+
 ## Usage
 
 We release our source code based on the gridworld environment in this [repo](https://github.com/Sha-Lab/gridworld). The usage is listed as following:
