@@ -83,6 +83,6 @@ If you are using any resources within this repo for your research, please cite:
 ```
 
 ## License
-BISON is MIT licensed, as found in the LICENSE file.
+SynPo is MIT licensed, as found in the LICENSE file.
 
 
