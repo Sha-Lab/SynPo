@@ -2,7 +2,7 @@
 
 This repository implements the SynPo algorithms presented in:
 
-- Hu, Hexiang, Liyu Chen, Boqing Gong, and Fei Sha. "Synthesize Policies for Transfer and Adaptation across Tasks and Environments." In Advances in Neural Information Processing Systems, pp. 1176-1185. 2018.
+- Hu, Hexiang, Liyu Chen, Boqing Gong, and Fei Sha. "Synthesized Policies for Transfer and Adaptation across Tasks and Environments." In Advances in Neural Information Processing Systems, pp. 1176-1185. 2018.
 
 ## Requirements
 
