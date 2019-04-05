@@ -72,6 +72,7 @@ optional arguments:
 
 If you are using any resources within this repo for your research, please cite:
 
+```
 @inproceedings{hu2018synthesize,
   title={Synthesized Policies for Transfer and Adaptation across Tasks and Environments},
   author={Hu, Hexiang and Chen, Liyu and Gong, Boqing and Sha, Fei},
@@ -79,6 +80,7 @@ If you are using any resources within this repo for your research, please cite:
   pages={1176--1185},
   year={2018}
 }
+```
 
 ## License
 BISON is MIT licensed, as found in the LICENSE file.
