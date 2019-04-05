@@ -42,8 +42,6 @@ class GridWorldTask(BasicTask):
             train_combos=None,
             test_combos=None,
             gaussian_img=True,
-            l=2,
-            vc=False,
             record=False,
             ):
     from synpo.gridworld.env import GridWorld, read_map, ComboEnv, PORGBEnv
@@ -57,7 +55,7 @@ class GridWorldTask(BasicTask):
                               num_obj_types=num_obj_types,
                               train_combos=train_combos,
                               test_combos=test_combos,
-                              gaussian_img=gaussian_img)), l=l, vc=vc, record=record)
+                              gaussian_img=gaussian_img)), record=record)
     self.action_dim = self.env.action_space.n
     self.max_steps = max_steps
     self.name = 'gridworld'
