@@ -1,0 +1,3 @@
+[submodule "synpo/gridworld"]
+	path = synpo/gridworld
+	url = git@github.com:Sha-Lab/gridworld.git
