@@ -39,7 +39,7 @@ parser.add_argument('--task_disentanglement', default=0.1, type=float,
                         help="loss weight of task disentanglement prediction objective")
 parser.add_argument('--split_filepath', default=None, type=str, required=True,
                         help="train/test split filepath")
-parser.add_argument('--lr', default=0.001, type=float, help="learning rate",
+parser.add_argument('--lr', default=0.001, type=float,
                         help="base learning rate")
 parser.add_argument('--wd', action='store_true', 
                         help="enable weight decay")
