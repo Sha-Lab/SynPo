@@ -1,4 +1,4 @@
-# [**Syn**thesized **Po**licies (SynPO)](https://sites.google.com/view/neurips2018-synpo/home)
+# [**Syn**thesized **Po**licies (SynPo)](https://sites.google.com/view/neurips2018-synpo/home)
 
 This repository implements the SynPo algorithms presented in:
 
