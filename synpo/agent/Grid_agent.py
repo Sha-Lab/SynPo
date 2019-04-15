@@ -36,9 +36,9 @@ def imitation_loss(agent, experiences):
   agent.cached_value = agent.cached_value or agent.learning_network.predict(states, scene_ids, task_ids, False)
 
   loss = 0
-  if isinstance(agent.cached_value, tuple) and ( isinstance(agent.learning_network, XSingleTensorST2GridNet) or \
-                                                 isinstance(agent.learning_network, XTaskSingleTensorST2GridNet) or \
-                                                 isinstance(agent.learning_network, XSTGridNet) ):
+  if isinstance(agent.cached_value, tuple) and ( isinstance(agent.learning_network, GridWorldSynPo) or \
+                                                 isinstance(agent.learning_network, GridWorldMTL) or \
+                                                 isinstance(agent.learning_network, GridWorldMLP) ):
     act, _, scene_scores, task_scores = agent.cached_value
     actions  = agent.learning_network.variable(actions, torch.LongTensor).view(-1, 1, 1)
 
