@@ -61,7 +61,7 @@ def imitation_loss(agent, experiences):
   return loss
 
 def reward_prediction_loss(agent, experiences):
-  assert isinstance(agent.learning_network, ValueSTNet)
+  assert isinstance(agent.learning_network, ValueNet)
   states, actions, rewards, qs, scene_ids, task_ids = extract(experiences,
     'states', 'actions', 'rewards', 'qs', 'scene_ids', 'task_ids')
   states = agent.task.normalize_state(states)
@@ -183,13 +183,11 @@ class GridBehaviourCloning(GridAgent):
       state = next_state
       if done and train and self.total_steps > self.config.exploration_steps:
         experiences = self.replay.sample()
-        if isinstance(self.learning_network, ValueSTNet):
+        if isinstance(self.learning_network, ValueNet):
           if self.reward_prediction:
             loss = imitation_loss(self, experiences) + 0.01 * reward_prediction_loss(self, experiences)
           else:
             loss = imitation_loss(self, experiences)
-        elif isinstance(self.learning_network, STNet):
-          loss = imitation_loss(self, experiences)
         else:
           raise NotImplementedError('Not supported network')
         self.optimizer.zero_grad()

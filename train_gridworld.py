@@ -61,6 +61,8 @@ parser.add_argument('--logger_name', default='log/synpo_{}_{}_{}_{}.log', type=s
                         help="logger name format [must have for slots to fill]")
 parser.add_argument('--norm', action='store_true',
                         help="whether normalize the scene/task embedding")
+parser.add_argument('--extend_mode', action='store_ture',
+                        help="train on the first (10 ENV, 10 TASK) combinations.")
 args = parser.parse_args()
 
 def get_network(task):
@@ -109,8 +111,7 @@ def gridworld_behaviour_cloning(args, layouts, train_combos, test_combos):
                                   task_length=args.task_length,
                                   history_length= config.history_length,
                                   train_combos=train_combos,
-                                  test_combos=test_combos,
-                                  vc=args.vc)
+                                  test_combos=test_combos)
   config.task_fn = lambda: grid_world_task
   if args.wd: 
     print('with weight decay!')
@@ -118,10 +119,7 @@ def gridworld_behaviour_cloning(args, layouts, train_combos, test_combos):
   else:
     print('without weight decay!')
     config.optimizer_fn = lambda params: torch.optim.Adam(params, lr=args.lr)
-  if args.vc:
-    print('varying color!')
-  else:
-    print('fix color!')
+
   network = get_network(grid_world_task)
   if args.weight is not None: network.load_state_dict(torch.load(args.weight)['best_model_weight'])
     
@@ -148,6 +146,10 @@ if __name__ == '__main__':
   mkdir('data')
   mkdir('log')
   os.system('export OMP_NUM_THREADS=1')
+
+  if args.extend_mode: # Hardcoding numbers of scenes and tasks for training
+    args.scene_num = 10
+    args.task_num  = 10
 
   set_seed(args.random_seed, c=args.random_seed)
   if args.split_filepath is None: # Default Multi-task Setting
