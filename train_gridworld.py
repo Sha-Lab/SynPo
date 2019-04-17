@@ -61,7 +61,7 @@ parser.add_argument('--logger_name', default='log/synpo_{}_{}_{}_{}.log', type=s
                         help="logger name format [must have for slots to fill]")
 parser.add_argument('--norm', action='store_true',
                         help="whether normalize the scene/task embedding")
-parser.add_argument('--extend_mode', action='store_ture',
+parser.add_argument('--extend_mode', action='store_true',
                         help="train on the first (10 ENV, 10 TASK) combinations.")
 args = parser.parse_args()
 
