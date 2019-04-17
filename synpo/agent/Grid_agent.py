@@ -192,7 +192,7 @@ class GridBehaviourCloning(GridAgent):
           raise NotImplementedError('Not supported network')
         self.optimizer.zero_grad()
         loss.backward()
-        total_loss.append( loss.data.cpu().numpy()[0] )
+        total_loss.append( loss.data.cpu().item() )
         if self.grad_clip > 0:
           clip_grad_norm(self.learning_network.parameters(), self.grad_clip)
         self.optimizer.step()
